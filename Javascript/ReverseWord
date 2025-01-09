@@ -1,1 +1,27 @@
+function reverse(sentence) {
+    let reversed = ""; 
+    let start = 0;
 
+    for (let i = 0; i < sentence.length; i++) {
+        if (sentence[i] === " ") {
+            reversed += revStr(sentence.substring(start, i)) + " ";
+            start = i + 1;
+        }
+    }
+
+    reversed += revStr(sentence.substring(start));
+    return reversed;
+}
+
+function revStr(str) {
+    let rev = "";
+    for (let i = str.length - 1; i >= 0; i--) {
+        rev += str[i];
+    }
+    return rev;
+}
+
+
+const userInput = prompt("Please enter your sentence");
+let output = reverse(userInput);
+console.log(output);
